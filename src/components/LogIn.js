@@ -34,7 +34,6 @@ const LogIn = ({ history }) => {
         else if (error.code === "auth/wrong-password") {
           setErrorUser("Invalid password")
         }
-
       }
     },
     [history]
@@ -53,7 +52,7 @@ const LogIn = ({ history }) => {
   return (
     <>
       <h1>Log in</h1>
-      <Form type={"login"} errorUser={errorUser}
+      <Form textLink={'not register ?'} typeLink={"/signup"} errorUser={errorUser}
        values={values} errors={errors} 
        handleChange={handleChange} login={login}  textBtn={'Log in'}
         propsFunc={handleSubmit} />

@@ -1,10 +1,10 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-export const Form = ({ propsFunc, textBtn, type, errorUser, handleChange, values, errors }) => {
+export const Form = ({ propsFunc, textBtn, textLink, typeLink, errorUser, handleChange, values, errors }) => {
 
     return (
+        
         <div className="wrapp__form">
-            {type === "login" ?
                 <>
                     <form onSubmit={(event) => { propsFunc(event) }}>
                         <label>
@@ -22,27 +22,8 @@ export const Form = ({ propsFunc, textBtn, type, errorUser, handleChange, values
                     </form>
                     {errorUser ? <div style={{ "color": "red", "marginTop": "10px" }}> {errorUser} </div> : ""}
 
-                    <div className="go__reg">not register ? <Link to="/signup">go</Link></div>
+                    <div className="go__reg">{textLink} <Link to={typeLink}>go</Link></div>
                 </>
-                :
-                <>
-                    <form onSubmit={(event) => { propsFunc(event)}}>
-                                <label>
-                                    Email
-                                    <input name="email"  placeholder="Email" />
-                                </label>
-                                <label>
-                                    Password
-                                    <input name="password" type="password" placeholder="Password" />
-                                </label>
-                        <button type="submit">{textBtn}</button>
-                    </form>
-                    {errorUser ? <div style={{ "color": "red", "marginTop": "10px" }}> {errorUser} </div> : ""}
-
-                   
-                </>
-            }
-
         </div>
     )
 }
