@@ -16,17 +16,15 @@ const LogIn = ({ history }) => {
         errors,
         handleChange,
         handleSubmit,
-    } = useForm(validate);
+    } = useForm(callbackFunc, validate);
 
 
   const login = useCallback(
-    async (event) => {
-      event.preventDefault();
-      const { email, password } = event.target.elements;
+    async (email, password) => {
       try {
         await app
           .auth()
-          .signInWithEmailAndPassword(email.value, password.value);
+          .signInWithEmailAndPassword(email, password);
         history.push("/");
       } catch (error) {
 
@@ -42,6 +40,9 @@ const LogIn = ({ history }) => {
     [history]
   );
 
+  function callbackFunc(){
+    login(values.email, values.password)
+  }
 
   const { currentUser } = useContext(AuthContext);
 

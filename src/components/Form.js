@@ -1,12 +1,12 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-export const Form = ({ propsFunc, textBtn, type, errorUser, handleChange, values, errors, login }) => {
+export const Form = ({ propsFunc, textBtn, type, errorUser, handleChange, values, errors }) => {
 
     return (
         <div className="wrapp__form">
             {type === "login" ?
                 <>
-                    <form onSubmit={(event) => { propsFunc(event); login(event) }}>
+                    <form onSubmit={(event) => { propsFunc(event) }}>
                         <label>
                             Email
                             <input className={`${errors.email && 'is-danger'}`} onChange={handleChange} value={values.email || ''} name="email"  placeholder="Email" />
