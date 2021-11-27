@@ -63,3 +63,7 @@ button{
 span{
     color:rgb(253, 13, 73) ;
 }
+
+.auth-container{
+    padding: 30px;
+}
